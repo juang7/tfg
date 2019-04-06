@@ -27,7 +27,7 @@ public class Comida {
 	@JoinColumn(name="bar_id")
 	private Bar bar;
 	
-	private int Precio;
+	private Double precio;
 	
 	
 	public Integer getId() {
@@ -60,10 +60,10 @@ public class Comida {
 	public void setBar(Bar bar) {
 		this.bar = bar;
 	}
-	public int getPrecio() {
-		return Precio;
+	public Double getPrecio() {
+		return precio;
 	}
-	public void setPrecio(int precio) {
-		Precio = precio;
+	public void setPrecio(Double precio) {
+		precio = precio;
 	}
 }

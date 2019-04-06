@@ -1,7 +1,6 @@
 package com.jfgp.Tfg.model;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,7 +15,7 @@ public class Mesa {
 	@NotNull
 	private Integer numero;
 	@NotNull
-	private String QR;
+	private String qr;
 	@NotNull
 	private Integer plazas;
 	@ManyToOne
@@ -34,12 +33,7 @@ public class Mesa {
 	public void setNumero(Integer numero) {
 		this.numero = numero;
 	}
-	public String getQR() {
-		return QR;
-	}
-	public void setQR(String qR) {
-		QR = qR;
-	}
+	
 	public Integer getPlazas() {
 		return plazas;
 	}
@@ -52,4 +46,12 @@ public class Mesa {
 	public void setBar(Bar bar) {
 		this.bar = bar;
 	}
+	public String getQr() {
+		return qr;
+	}
+	public void setQr(String qr) {
+		qr = qr;
+	}
+	
+	
 }

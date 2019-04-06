@@ -15,7 +15,7 @@ import javax.validation.constraints.Size;
 public class Bar {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer bar_id;
+	private Integer id;
 	
 	@NotNull
 	@Size(min = 3)
@@ -59,10 +59,10 @@ public class Bar {
 		this.rangoPrecio = rangoPrecio;
 	}
 	public Integer getBar_id() {
-		return bar_id;
+		return id;
 	}
-	public void setBar_id(Integer bar_id) {
-		this.bar_id = bar_id;
+	public void setBar_id(Integer id) {
+		this.id = id;
 	}
 	public List<Comida> getComidas() {
 		return comidas;
