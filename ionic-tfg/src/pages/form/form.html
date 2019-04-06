@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Demo 103
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+<button ion-button (click)="openPage()"> Home </button>
+  <h2>Buscar usuario:</h2>
+  <form [formGroup]="formBuscar" (ngSubmit)="buscar()">
+  <ion-list>
+      <ion-item>
+          <ion-label stacked>Id:</ion-label>
+        <ion-input formControlName="id" type="text" placeholder="Id"></ion-input>
+      </ion-item>
+      </ion-list>
+      <div padding>
+      <button ion-button block type="submit" [disabled]="!formBuscar.valid">Buscar</button>
+    </div>
+</form>
+
+  <p> &nbsp;&nbsp;&nbsp;&nbsp;Nombre: {{ user.nombre }} {{ user.apellidos }} <br><br></p>
+
+  <h2>Añadir usuario:</h2>
+<form [formGroup]="myForm" (ngSubmit)="saveData()">
+
+  <ion-list>
+      <ion-item>
+          <ion-label stacked>Nombre:</ion-label>
+        <ion-input formControlName="nombre" type="text" placeholder="Nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label stacked>Apellidos:</ion-label>
+        <ion-input formControlName="apellidos" type="text" placeholder="apellidos"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label stacked>Email:</ion-label>
+        <ion-input formControlName="email" type="text" placeholder="email"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label stacked>Telefono:</ion-label>
+        <ion-input formControlName="telefono" type="text" placeholder="telefono"></ion-input>
+      </ion-item>
+      </ion-list>
+      <div padding>
+      <button ion-button block type="submit" [disabled]="!myForm.valid">Guardar</button>
+    </div>
+</form>
+<h2>Modificar usuario:</h2>
+<h2>Eliminar usuario:</h2>
+<form [formGroup]="formBuscar" (ngSubmit)="deleteUser()">
+  <ion-list>
+      <ion-item>
+          <ion-label stacked>Id:</ion-label>
+        <ion-input formControlName="id" type="text" placeholder="Id"></ion-input>
+      </ion-item>
+      </ion-list>
+      <div padding>
+      <button ion-button block type="submit" [disabled]="!formBuscar.valid">Eliminar</button>
+    </div>
+</form>
+
+</ion-content>

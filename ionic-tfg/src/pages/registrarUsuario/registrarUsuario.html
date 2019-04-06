@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Demo 103
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <h2>Añadir usuario:</h2>
+<form [formGroup]="myForm" (ngSubmit)="saveData()">
+
+  <ion-list>
+      <ion-item>
+          <ion-label stacked>Nombre:</ion-label>
+        <ion-input formControlName="nombre" type="text" placeholder="Nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label stacked>Apellidos:</ion-label>
+        <ion-input formControlName="apellidos" type="text" placeholder="apellidos"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label stacked>Email:</ion-label>
+        <ion-input formControlName="email" type="text" placeholder="email"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label stacked>Confirmar Email:</ion-label>
+        <ion-input formControlName="confirmarEmail" type="text" placeholder="confirmarEmail"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label stacked>Telefono:</ion-label>
+        <ion-input formControlName="telefono" type="text" placeholder="telefono"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label stacked>Contreseña:</ion-label>
+        <ion-input formControlName="password" type="password" placeholder="password"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label stacked>Confirmar contreseña:</ion-label>
+        <ion-input formControlName="ConfirmPassword" type="password" placeholder="ConfirmPassword"></ion-input>
+      </ion-item>
+      </ion-list>
+      <div padding>
+      <button ion-button block type="submit" [disabled]="!myForm.valid">Guardar</button>
+    </div>
+</form>
+
+</ion-content>

@@ -1,0 +1,13 @@
+{
+  "name": "ionic-tfg",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/",
+      "proxyUrl": "http://192.168.100.147:8080"
+    }
+  ]
+}

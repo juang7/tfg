@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\pages",
+    "\\src\\pages\\form",
+    "\\src\\pages\\login",
+    "\\src\\pages\\registrarUsuario"
+  ],
+  "SelectedNode": "\\src\\pages\\registrarUsuario\\registrarUsuario.ts",
+  "PreviewInSolutionExplorer": false
+}
