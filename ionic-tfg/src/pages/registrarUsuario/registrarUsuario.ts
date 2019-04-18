@@ -27,24 +27,25 @@ export class RegistrarUsuarioPage {
   saveData(){
     console.log(this.myForm.value);
 
-    this.validarDatos();
+    this.validarPassword();
+    this.validarEmail();
     this.user = this.myForm.value;
     this.postUser();
   }
   
   private createMyForm(){
     return this.formBuilder.group({
-      nombre: ['', Validators.required],
+      nombre: ['Jose', Validators.required],
       apellidos: ['', Validators.required],
-      email: ['', Validators.compose([Validators.required, Validators.pattern('.+@.+\\..+')])],
-      confirmarEmail: ['', Validators.compose([ Validators.required, Validators.pattern('.+@.+\\..+')])],
-      telefono: ['', Validators.compose([Validators.required, Validators.minLength(9), Validators.maxLength(9)])],
+      email: ['', Validators.compose([Validators.required, Validators.email])],
+      confirmarEmail: ['', Validators.compose([ Validators.required, Validators.email])],
+      telefono: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{9}$') ])],
       password: ['', Validators.compose([
         Validators.minLength(5),
         Validators.required,
         Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$') //this is for the letters (both uppercase and lowercase) and numbers validation
       ])],
-      ConfirmPassword: ['', Validators.compose([
+      confirmPassword: ['', Validators.compose([
         Validators.minLength(5),
         Validators.required,
         Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$') //this is for the letters (both uppercase and lowercase) and numbers validation
@@ -63,20 +64,25 @@ export class RegistrarUsuarioPage {
      this.navCtrl.push(HomePage);
   }
 
-  validarDatos() {
-    if (this.myForm.value.email == this.myForm.value.confirmarEmail) {
-      console.log('correcto');
+  validarPassword() {
+ 
+    if (this.myForm.value.password == this.myForm.value.confirmPassword) {
+      return true;
 
-    } else{
-      console.log('Incorrecto');
+    } else {
+      return false;
 
     }
 
-    if (this.myForm.value.password==this.myForm.value.ConfirmPassword) {
-      console.log('correcto password');
+  }
+
+  validarEmail() {
+
+    if (this.myForm.value.email == this.myForm.value.confirmarEmail) {
+      return true;
 
     } else {
-      console.log('Incorrecto password');
+      return false;
 
     }
 

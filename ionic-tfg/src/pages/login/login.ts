@@ -30,7 +30,7 @@ export class LoginPage {
 
   buscar(){
     this.userService.getUsers(this.formBuscar.value.id)
-    .subscribe(
+    .subscribe (
       (data) => { this.user = data;
       console.log(data)},
       (error) =>{ console.error(error);}

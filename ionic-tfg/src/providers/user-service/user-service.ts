@@ -42,16 +42,10 @@ export class UserServiceProvider {
       });
   }
 
-  putUser() {
+  putUser(user: any) {
 
-    let postData = {
-    	"nombre": "modificado",
-        "apellidos": "Gil",
-        "email": "juan@gmail.com",
-        "telefono": "658474964" 
-      }
 
-    return this.http.put("/usuario/2", postData, this.options)
+    return this.http.put("/usuario/"+user.id, user, this.options)
       .subscribe(data => {
         console.log(data);
        }, error => {

@@ -58,7 +58,7 @@ export class FormPage {
   }
 
   putUser() {
-    this.userService.putUser();
+    this.userService.putUser(this.user);
   
   }
 

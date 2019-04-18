@@ -5,9 +5,12 @@
     "\\src\\app",
     "\\src\\pages",
     "\\src\\pages\\form",
+    "\\src\\pages\\home",
     "\\src\\pages\\login",
-    "\\src\\pages\\registrarUsuario"
+    "\\src\\pages\\modificarUsuario",
+    "\\src\\providers",
+    "\\src\\providers\\user-service"
   ],
-  "SelectedNode": "\\src\\pages\\registrarUsuario\\registrarUsuario.ts",
+  "SelectedNode": "\\src\\pages\\modificarUsuario\\modificarUsuario.ts",
   "PreviewInSolutionExplorer": false
 }

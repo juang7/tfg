@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Mis datos
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <h2 padding> {{ user.nombre }} {{ user.apellidos }}</h2>
+  <form [formGroup]="myForm" (ngSubmit)="saveData()">
+
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>Nombre:</ion-label>
+        <ion-input  [disabled]="!modoEdiccion()" formControlName="nombre" type="text" placeholder="Nombre" value="{{ user.nombre }}"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Apellidos:</ion-label>
+        <ion-input  [disabled]="!modoEdiccion()" formControlName="apellidos" type="text" placeholder="apellidos" value="{{ user.apellidos }}"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Email:</ion-label>
+        <ion-input [disabled]="!modoEdiccion()" formControlName="email" type="text" placeholder="email" value="{{ user.email }}"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="myForm.get('email').errors && myForm.get('email').touched && myForm.get('email').value!=''">
+        <p color="danger" ion-text *ngIf="myForm.get('email').hasError('email')">Email no válido</p>
+      </ion-item>
+      <ion-item *ngIf="modoEdiccion()">
+        <ion-label stacked>Confirmar Email:</ion-label>
+        <ion-input  [disabled]="!modoEdiccion()" formControlName="confirmarEmail" type="text" placeholder="confirmarEmail"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!validarEmail() && myForm.get('confirmarEmail').touched && myForm.get('confirmarEmail').value!=''">
+        <p color="danger" ion-text>La confirmación de email no coincide</p>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Telefono:</ion-label>
+        <ion-input  [disabled]="!modoEdiccion()" formControlName="telefono" type="text" placeholder="telefono" value="{{ user.telefono }}"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="myForm.get('telefono').errors && myForm.get('telefono').touched && myForm.get('telefono').value!=''">
+        <p color="danger" ion-text *ngIf="myForm.get('telefono').hasError('pattern')">Teléfono no válido</p>
+      </ion-item>
+      <ion-item *ngIf="modoEdiccion()">
+        <ion-label stacked>Contraseña:</ion-label>
+        <ion-input  [disabled]="!modoEdiccion()" formControlName="password" type="password" placeholder="password"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="myForm.get('password').errors && myForm.get('password').touched && myForm.get('password').value!=''">
+        <p color="danger" ion-text *ngIf="myForm.get('password').hasError('pattern')">La contraseña debe estar formada por mayúsculas, minúsculas y números</p>
+      </ion-item>
+      <ion-item *ngIf="modoEdiccion()">
+        <ion-label stacked>Confirmar contreseña:</ion-label>
+        <ion-input  [disabled]="!modoEdiccion()" formControlName="confirmPassword" type="password" placeholder="confirmPassword"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!validarPassword() && myForm.get('confirmPassword').touched && myForm.get('confirmPassword').value!=''">
+        <p color="danger" ion-text>La confirmación de la contraseña no coincide</p>
+      </ion-item>
+    </ion-list>
+    <div padding *ngIf="modoEdiccion()">
+      <button ion-button block type="submit" [disabled]="!myForm.valid||!validarPassword()||!validarEmail()">Guardar</button>
+      <button ion-button block color="danger" (click)="cancelarModificacion()">Cancelar</button>
+    </div>
+  </form>
+  <div padding text-right *ngIf="!modoEdiccion()">
+    <button ion-button color="danger" (click)="deleteUser()">Dar de baja</button>
+    <button ion-button (click)="activarModificacion()">Modificar</button>
+  </div>
+  
+</ion-content>

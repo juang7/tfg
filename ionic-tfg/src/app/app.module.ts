@@ -6,7 +6,8 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { FormPage } from '../pages/form/form';
 import { LoginPage } from '../pages/login/login';
-import { RegistrarUsuarioPage } from '../pages/registrarUsuario/registrarUsuario';
+import { RegistrarUsuarioPage } from '../pages/registrarUsuario/registrarUsuario'; 
+import { ModificarUsuarioPage } from '../pages/modificarUsuario/modificarUsuario';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -21,7 +22,8 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
     HomePage,
     FormPage,
     LoginPage,
-    RegistrarUsuarioPage
+    RegistrarUsuarioPage,
+    ModificarUsuarioPage
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
     HomePage,
     FormPage,
     LoginPage,
-    RegistrarUsuarioPage
+    RegistrarUsuarioPage,
+    ModificarUsuarioPage
   ],
   providers: [
     StatusBar,

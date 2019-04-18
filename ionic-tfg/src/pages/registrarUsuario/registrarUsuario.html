@@ -1,47 +1,62 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>
-      Demo 103
+      Registro Usuario
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <h2>Añadir usuario:</h2>
+  <h2>Registrate:</h2>
 <form [formGroup]="myForm" (ngSubmit)="saveData()">
 
   <ion-list>
-      <ion-item>
-          <ion-label stacked>Nombre:</ion-label>
-        <ion-input formControlName="nombre" type="text" placeholder="Nombre"></ion-input>
-      </ion-item>
-      <ion-item>
-          <ion-label stacked>Apellidos:</ion-label>
-        <ion-input formControlName="apellidos" type="text" placeholder="apellidos"></ion-input>
-      </ion-item>
-      <ion-item>
-          <ion-label stacked>Email:</ion-label>
-        <ion-input formControlName="email" type="text" placeholder="email"></ion-input>
-      </ion-item>
-      <ion-item>
-          <ion-label stacked>Confirmar Email:</ion-label>
-        <ion-input formControlName="confirmarEmail" type="text" placeholder="confirmarEmail"></ion-input>
-      </ion-item>
-      <ion-item>
-          <ion-label stacked>Telefono:</ion-label>
-        <ion-input formControlName="telefono" type="text" placeholder="telefono"></ion-input>
-      </ion-item>
-      <ion-item>
-          <ion-label stacked>Contreseña:</ion-label>
-        <ion-input formControlName="password" type="password" placeholder="password"></ion-input>
-      </ion-item>
-      <ion-item>
-          <ion-label stacked>Confirmar contreseña:</ion-label>
-        <ion-input formControlName="ConfirmPassword" type="password" placeholder="ConfirmPassword"></ion-input>
-      </ion-item>
-      </ion-list>
+    <ion-item>
+      <ion-label stacked>Nombre:</ion-label>
+      <ion-input formControlName="nombre" type="text" placeholder="Nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Apellidos:</ion-label>
+      <ion-input formControlName="apellidos" type="text" placeholder="apellidos"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Email:</ion-label>
+      <ion-input formControlName="email" type="text" placeholder="email"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="myForm.get('email').errors && myForm.get('email').touched && myForm.get('email').value!=''">
+      <p color="danger" ion-text *ngIf="myForm.get('email').hasError('email')">Email no válido</p>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Confirmar Email:</ion-label>
+      <ion-input formControlName="confirmarEmail" type="text" placeholder="confirmarEmail"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!validarEmail() && myForm.get('confirmarEmail').touched && myForm.get('confirmarEmail').value!=''">
+      <p color="danger" ion-text>La confirmación de email no coincide</p>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Telefono:</ion-label>
+      <ion-input formControlName="telefono" type="text" placeholder="telefono"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="myForm.get('telefono').errors && myForm.get('telefono').touched && myForm.get('telefono').value!=''">
+      <p color="danger" ion-text *ngIf="myForm.get('telefono').hasError('pattern')">Teléfono no válido</p>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Contraseña:</ion-label>
+      <ion-input formControlName="password" type="password" placeholder="password"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="myForm.get('password').errors && myForm.get('password').touched && myForm.get('password').value!=''">
+      <p color="danger" ion-text *ngIf="myForm.get('password').hasError('pattern')">La contraseña debe estar formada por mayúsculas, minúsculas y números</p>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Confirmar contreseña:</ion-label>
+      <ion-input formControlName="confirmPassword" type="password" placeholder="confirmPassword"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!validarPassword() && myForm.get('confirmPassword').touched && myForm.get('confirmPassword').value!=''">
+      <p color="danger" ion-text>La confirmación de la contraseña no coincide</p>
+    </ion-item>
+  </ion-list>
       <div padding>
-      <button ion-button block type="submit" [disabled]="!myForm.valid">Guardar</button>
+      <button ion-button block type="submit" [disabled]="!myForm.valid||!validarPassword()||!validarEmail()">Registrate</button>
     </div>
 </form>
 
