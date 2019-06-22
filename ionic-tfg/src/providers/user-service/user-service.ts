@@ -25,15 +25,17 @@ export class UserServiceProvider {
   ) {}
 
   getUsers(user: any) {
-    console.log('/usuario/1');
-    return this.http.get('/usuario/1');
+    console.log('/usuario/' + user);
+    console.log('a' + user);
+    return this.http.get('/usuario/' + user);
+    
   }
 
  postUser(user: any) {
 
 
     let postData = user;
-
+   console.log('a'+user);
     return this.http.post("/usuario", postData, this.options)
       .subscribe(data => {
         console.log(data);

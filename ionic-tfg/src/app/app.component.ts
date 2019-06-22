@@ -7,7 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { FormPage } from '../pages/form/form';
 import { LoginPage } from '../pages/login/login';
 import { ModificarUsuarioPage } from '../pages/modificarUsuario/modificarUsuario';
-
+import { RegistrarBarPage } from '../pages/registrarBar/registrarBar';
 
 @Component({
   templateUrl: 'app.html'
@@ -27,7 +27,8 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'Form', component: FormPage },
       { title: 'Login', component: LoginPage },
-      { title: 'Perfil', component: ModificarUsuarioPage }
+      { title: 'Perfil', component: ModificarUsuarioPage },
+      { title: 'Registrar Bar', component: RegistrarBarPage }
 
     ];
 

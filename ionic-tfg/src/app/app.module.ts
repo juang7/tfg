@@ -8,12 +8,18 @@ import { FormPage } from '../pages/form/form';
 import { LoginPage } from '../pages/login/login';
 import { RegistrarUsuarioPage } from '../pages/registrarUsuario/registrarUsuario'; 
 import { ModificarUsuarioPage } from '../pages/modificarUsuario/modificarUsuario';
+import { RegistrarBarPage } from '../pages/registrarBar/registrarBar';
+import { AdministrarBaresPage } from '../pages/administrarBares/administrarBares';
+
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HttpClientModule } from '@angular/common/http';
 import { UserServiceProvider } from '../providers/user-service/user-service';
+import { BarServiceProvider } from '../providers/bar-service/bar-service';
+
 
 
 @NgModule({
@@ -23,7 +29,9 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
     FormPage,
     LoginPage,
     RegistrarUsuarioPage,
-    ModificarUsuarioPage
+    ModificarUsuarioPage,
+    RegistrarBarPage,
+    AdministrarBaresPage
   ],
   imports: [
     BrowserModule,
@@ -37,13 +45,16 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
     FormPage,
     LoginPage,
     RegistrarUsuarioPage,
-    ModificarUsuarioPage
+    ModificarUsuarioPage,
+    RegistrarBarPage,
+    AdministrarBaresPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserServiceProvider
+    UserServiceProvider,
+    BarServiceProvider
   ]
 })
 export class AppModule {}

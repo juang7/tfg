@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { FormPage } from '../form/form';
-import { LoginPage } from '../login/login';
+import { AdministrarBaresPage } from '../administrarBares/administrarBares';
 
 @Component({
   selector: 'page-home',
@@ -10,7 +10,6 @@ import { LoginPage } from '../login/login';
 export class HomePage {
 	
  public FormPage: FormPage;
- public LoginPage: LoginPage;
 
   constructor(public navCtrl: NavController) {
 
@@ -19,5 +18,7 @@ export class HomePage {
 openPage(page) {
      this.navCtrl.push(page);
   }
-
+  openPageAdministrarBares() {
+    this.navCtrl.push(AdministrarBaresPage);
+  }
 }

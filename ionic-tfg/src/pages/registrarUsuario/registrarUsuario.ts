@@ -35,7 +35,7 @@ export class RegistrarUsuarioPage {
   
   private createMyForm(){
     return this.formBuilder.group({
-      nombre: ['Jose', Validators.required],
+      nombre: ['', Validators.required],
       apellidos: ['', Validators.required],
       email: ['', Validators.compose([Validators.required, Validators.email])],
       confirmarEmail: ['', Validators.compose([ Validators.required, Validators.email])],
